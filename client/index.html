@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smash Studio | Creative Technology & AI Solutions</title>
+  <meta name="description"
+    content="Smash Studio engineers high-performance AI, spatial XR environments, and complex game-logic systems for the modern enterprise. We architect the digital infrastructure of tomorrow.">
+  <meta name="keywords"
+    content="Smash Studio, AI Development, XR Environments, Spatial Computing, Game Logic Systems, Metaverse Architecture, Punjab Tech, Creative Technology Studio">
+  <meta name="author" content="Smash Studio">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smashstudio.tech/">
+  <meta property="og:title" content="Smash Studio | Creative Technology & AI Solutions">
+  <meta property="og:description" content="High-performance AI, spatial XR, and complex systems engineering.">
+  <meta property="og:image" content="https://smashstudio.tech/assets/Smash%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://smashstudio.tech/">
+  <meta property="twitter:title" content="Smash Studio | Creative Technology & AI Solutions">
+  <meta property="twitter:description" content="High-performance AI, spatial XR, and complex systems engineering.">
+  <meta property="twitter:image" content="https://smashstudio.tech/assets/Smash%20logo.png">
+
+  <!-- Favicon & Theme -->
+  <link rel="icon" type="image/png" href="./src/assets/Smash logo.png">
+  <meta name="theme-color" content="#0F172A">
+  <link rel="canonical" href="https://smashstudio.tech/">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Smash Studio",
+      "url": "https://smashstudio.tech",
+      "logo": "https://smashstudio.tech/assets/Smash logo.png",
+      "description": "Specializing in AI, XR, and complex game-logic systems.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Punjab",
+        "addressCountry": "India"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service"
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Entry point (Vite handles CSS import inside main.js) -->
+  <script type="module" src="./src/main.js"></script>
+
+  <style>
+    body {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Three.js Background Canvas -->
+  <canvas id="data-lines-canvas" class="bg-canvas"></canvas>
+
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-logo">
+      <a href="#hero">
+        <img src="./src/assets/Smash logo.png" alt="Smash Studio">
+      </a>
+    </div>
+    <div class="nav-links-container">
+      <ul class="nav-links">
+        <li><a href="#services">Systems</a></li>
+        <li><a href="#process">Protocol</a></li>
+        <li><a href="#tech">Archive</a></li>
+        <li><a href="#testimonials">Endorsements</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Open Secure Line</a>
+    </div>
+
+    <button class="burger-menu" id="burger-trigger" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-inner">
+      <ul class="mobile-links">
+        <li><a href="#services">Systems</a></li>
+        <li><a href="#process">Protocol</a></li>
+        <li><a href="#tech">Archive</a></li>
+        <li><a href="#testimonials">Endorsements</a></li>
+      </ul>
+      <div class="mobile-cta-wrapper">
+        <a href="#contact" class="nav-cta mobile-cta">Open Secure Line</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ScrollSmoother wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- ==================================================
+       SECTION 1 - HERO
+      ================================================== -->
+      <section id="hero">
+        <div class="hero-grid"></div>
+
+        <!-- Floating stat cards -->
+        <div class="hero-float-card card-1" data-speed="0.85" data-lag="0.1">
+          <div class="float-card-label">Systems Deployed</div>
+          <div class="float-card-value">142</div>
+          <div class="float-card-delta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <line x1="12" y1="19" x2="12" y2="5" />
+              <polyline points="5 12 12 5 19 12" />
+            </svg> 24% this quarter
+          </div>
+        </div>
+        <div class="hero-float-card card-2" data-speed="1.1" data-lag="0.15">
+          <div class="float-card-label">Uptime Guarantee</div>
+          <div class="float-card-value">99.9%</div>
+          <div class="float-card-delta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <line x1="12" y1="19" x2="12" y2="5" />
+              <polyline points="5 12 12 5 19 12" />
+            </svg> Enterprise SLA
+          </div>
+        </div>
+        <div class="hero-float-card card-3" data-speed="0.9" data-lag="0.2">
+          <div class="float-card-label">Response Latency</div>
+          <div class="float-card-value">&lt;12ms</div>
+          <div class="float-card-delta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <line x1="12" y1="19" x2="12" y2="5" />
+              <polyline points="5 12 12 5 19 12" />
+            </svg> Peak Load
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow" id="hero-eyebrow">Creative Technology Studio</div>
+
+          <h1 class="hero-headline" id="hero-headline">
+            <span class="line"><span class="line-inner">Accelerating</span></span>
+            <span class="line"><span class="line-inner">the Synthetic</span></span>
+            <span class="line"><span class="line-inner">Future</span></span>
+          </h1>
+
+          <p class="hero-sub" id="hero-sub">
+            In a world of stagnant data and fragmented systems, Smash Studio provides the velocity required to dominate
+            the digital landscape. We engineer high-performance AI, spatial XR environments, and complex game-logic
+            systems that integrate seamlessly into the modern enterprise.
+          </p>
+
+          <div class="hero-actions" id="hero-actions">
+            <button class="btn-primary">
+              <span>Trigger Deployment</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+            <button class="btn-ghost">
+              Explore The Grid
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle; margin-left:4px;">
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==================================================
+       SECTION 2 - SERVICES (Horizontal)
+      ================================================== -->
+      <section id="services">
+        <div class="noise"></div>
+        <!-- New Floating 3D Asset -->
+        <img class="floating-3d-asset asset-sphere" src="./src/assets/3d_sphere.png" alt="3D Sphere" aria-hidden="true">
+
+        <div class="services-sticky">
+          <div class="services-track" id="services-track">
+
+            <!-- ── LEFT: Service Cards ── -->
+            <div class="service-card">
+              <div class="service-number">01</div>
+              <div class="service-content">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" x2="12" y1="19" y2="22" />
+                  </svg>
+                </div>
+                <div class="service-tag">01 — AI &amp; Neural Logic</div>
+                <h2 class="service-title">Autonomous<br>AI &amp; Neural<br>Logic</h2>
+                <p class="service-desc">We move beyond basic automation. Smash Studio deploys sophisticated machine
+                  learning models designed to function as the cognitive engine of your business, optimizing
+                  decision-making and stripping away operational latency.</p>
+                <div class="service-tags-list">
+                  <span class="service-tag-pill">Machine Learning</span>
+                  <span class="service-tag-pill">Neural Networks</span>
+                  <span class="service-tag-pill">Predictive Logic</span>
+                  <span class="service-tag-pill">LLM Integration</span>
+                </div>
+              </div>
+
+              <div class="service-visual" aria-hidden="true">
+                <img class="service-asset asset-star" src="./src/assets/Star.avif" alt="">
+                <div class="service-map">
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="service-data-panel">
+                  <div><span>Inference load</span><strong>98%</strong></div>
+                  <div><span>Decision lag</span><strong>12ms</strong></div>
+                  <div><span>Signal quality</span><strong>High</strong></div>
+                </div>
+                <div class="service-visual-label">Neural operations</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-number">02</div>
+              <div class="service-content">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 10h20" />
+                    <path d="M2 14h20" />
+                    <path d="M6 6h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
+                  </svg>
+                </div>
+                <div class="service-tag">02 — XR &amp; Spatial</div>
+                <h2 class="service-title">Immersive<br>XR &amp; Spatial<br>Computing</h2>
+                <p class="service-desc">We collapse the distance between the user and the interface. Our Extended
+                  Reality (XR) solutions unify AR and VR into a single, cohesive framework built for high-stakes
+                  industrial training and interactive brand storytelling.</p>
+                <div class="service-tags-list">
+                  <span class="service-tag-pill">AR / VR / MR</span>
+                  <span class="service-tag-pill">WebXR</span>
+                  <span class="service-tag-pill">Industrial Training</span>
+                </div>
+              </div>
+
+              <div class="service-visual" aria-hidden="true">
+                <img class="service-asset asset-diamond" src="./src/assets/dimond.avif" alt="">
+                <div class="service-map">
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="service-data-panel">
+                  <div><span>Spatial anchors</span><strong>64</strong></div>
+                  <div><span>Frame target</span><strong>90hz</strong></div>
+                  <div><span>Presence score</span><strong>Live</strong></div>
+                </div>
+                <div class="service-visual-label">Spatial field</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-number">03</div>
+              <div class="service-content">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </div>
+                <div class="service-tag">03 — Engine Dev</div>
+                <h2 class="service-title">Advanced<br>Unity &amp; Engine<br>Development</h2>
+                <p class="service-desc">Leveraging the power of real-time 3D engines, we construct physics-compliant
+                  environments for both entertainment and enterprise. Our code is optimized for maximum frame rates and
+                  zero-latency interaction across all hardware.</p>
+                <div class="service-tags-list">
+                  <span class="service-tag-pill">Unity 3D</span>
+                  <span class="service-tag-pill">Unreal Engine</span>
+                  <span class="service-tag-pill">Physics Simulation</span>
+                </div>
+              </div>
+
+              <div class="service-visual" aria-hidden="true">
+                <img class="service-asset asset-polygon" src="./src/assets/polygon.avif" alt="">
+                <div class="service-map">
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="service-data-panel">
+                  <div><span>Render budget</span><strong>8.3ms</strong></div>
+                  <div><span>Physics ticks</span><strong>120</strong></div>
+                  <div><span>Build state</span><strong>Stable</strong></div>
+                </div>
+                <div class="service-visual-label">Engine telemetry</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-number">04</div>
+              <div class="service-content">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" x2="22" y1="12" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <div class="service-tag">04 — Metaverse</div>
+                <h2 class="service-title">Persistent<br>Metaverse<br>Architecture</h2>
+                <p class="service-desc">We build the foundations of the decentralized web. Our metaverse frameworks
+                  support high-density user populations and persistent data states, creating digital economies that live
+                  and breathe in real-time.</p>
+                <div class="service-tags-list">
+                  <span class="service-tag-pill">Decentralized Web</span>
+                  <span class="service-tag-pill">Digital Economy</span>
+                  <span class="service-tag-pill">Persistent State</span>
+                </div>
+              </div>
+
+              <div class="service-visual" aria-hidden="true">
+                <img class="service-asset asset-spring" src="./src/assets/spring.avif" alt="">
+                <div class="service-map">
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="service-data-panel">
+                  <div><span>Active shards</span><strong>32</strong></div>
+                  <div><span>State sync</span><strong>0.04s</strong></div>
+                  <div><span>World status</span><strong>Open</strong></div>
+                </div>
+                <div class="service-visual-label">Persistent network</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-number">05</div>
+              <div class="service-content">
+                <div class="service-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.2-1.5-4-3.6-4.4C17.9 6.8 15.2 4 12 4c-2.4 0-4.5 1.5-5.4 3.6-2.1.2-3.6 2-3.6 4.1 0 2.3 1.9 4.3 4.3 4.3h10.2Z" />
+                  </svg>
+                </div>
+                <div class="service-tag">05 — SaaS &amp; Cloud</div>
+                <h2 class="service-title">Agile SaaS<br>&amp; Cloud<br>Frameworks</h2>
+                <p class="service-desc">Smash Studio architects elastic software solutions that grow with your user
+                  base. We specialize in custom-built application layers that focus on high-availability, security, and
+                  uncompromising speed.</p>
+                <div class="service-tags-list">
+                  <span class="service-tag-pill">Cloud Architecture</span>
+                  <span class="service-tag-pill">High Availability</span>
+                  <span class="service-tag-pill">Security-First</span>
+                </div>
+              </div>
+
+              <div class="service-visual" aria-hidden="true">
+                <img class="service-asset asset-hero" src="./src/assets/hero.png" alt="">
+                <div class="service-map">
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="service-data-panel">
+                  <div><span>Autoscale band</span><strong>4x</strong></div>
+                  <div><span>Availability</span><strong>99.9%</strong></div>
+                  <div><span>Security tier</span><strong>A+</strong></div>
+                </div>
+                <div class="service-visual-label">Cloud control</div>
+              </div>
+            </div>
+
+
+          </div><!-- /services-track -->
+        </div><!-- /services-sticky -->
+      </section>
+
+      <!-- ==================================================
+       SECTION 3 - PROCESS
+      ================================================== -->
+      <section id="process">
+        <div class="process-bg-text">PROTOCOL</div>
+        <div class="process-header">
+          <div class="process-label">The Smash Studio Protocol</div>
+          <h2 class="process-title" id="process-title">Our Method.<br>Zero<br>Compromise.</h2>
+        </div>
+
+        <!-- New Floating 3D Asset -->
+        <img class="floating-3d-asset asset-3d-polygon" src="./src/assets/3d-polygon.png" alt="3D Polygon"
+          aria-hidden="true">
+
+        <div class="process-steps" id="process-steps">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <div class="step-title">Velocity Mapping</div>
+            <p class="step-desc">We analyze your existing bottlenecks to identify the fastest route to high-impact
+              technical deployment.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <div class="step-title">Systems Prototyping</div>
+            <p class="step-desc">Rapid iteration of the core logic and spatial wireframes to validate the build before
+              full-scale engineering.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <div class="step-title">High-Performance Build</div>
+            <p class="step-desc">Our developers execute the code using industrial-grade engines, prioritizing stability
+              and efficient resource management.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <div class="step-title">Kinetic Testing</div>
+            <p class="step-desc">We subject the application to extreme load and hardware stress to ensure it remains
+              responsive in real-world conditions.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">05</div>
+            <div class="step-title">Global Rollout</div>
+            <p class="step-desc">Managing the deployment across regional and national grids with ongoing support to
+              ensure your system never slows down.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================
+       SECTION 4 - TECH / AUTHORITY
+      ================================================== -->
+      <section id="tech">
+        <div class="tech-inner">
+          <div class="tech-split">
+            <div>
+              <div class="tech-label">Technical Authority</div>
+              <h2 class="tech-headline" id="tech-headline">Why Smash Studio?</h2>
+              <p class="tech-body">Engineering first. We prioritize technical grit over flashy interfaces. If the code
+                isn't efficient, it doesn't leave our lab. Based in the Punjab region, we provide a localized,
+                high-touch partnership that understands the unique demands of the North Indian business landscape.</p>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6" y1="6" y2="6"/><line x1="6" x2="6" y1="18" y2="18"/></svg>
+                </div>
+                <div class="stat-number" data-count="140">0</div>
+                <div class="stat-label">Systems Deployed</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="stat-number" data-count="99">0</div>
+                <div class="stat-label">Uptime Percentage</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="stat-number" data-count="8">0</div>
+                <div class="stat-label">Years Operating</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 3-3 8.5-8.5a2.12 2.12 0 1 1 3 3L9 21l-3 3L3 21Z"/><path d="m15 5 4 4"/></svg>
+                </div>
+                <div class="stat-number" data-count="48">0</div>
+                <div class="stat-label">Platforms Launched</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Authority pillars -->
+          <div class="authority-grid">
+            <div class="authority-card">
+              <div class="authority-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <h3 class="authority-title">Engineering First</h3>
+              <p class="authority-desc">We prioritize technical grit over flashy interfaces. If the code isn't
+                efficient, it doesn't leave our lab.</p>
+            </div>
+            <div class="authority-card">
+              <div class="authority-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <h3 class="authority-title">Regional Dominance</h3>
+              <p class="authority-desc">Based in the Punjab region, we provide a high-touch partnership that understands
+                the North Indian business landscape.</p>
+            </div>
+            <div class="authority-card">
+              <div class="authority-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                  <path d="M4 22h16" />
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                </svg>
+              </div>
+              <h3 class="authority-title">Proven Legacy</h3>
+              <p class="authority-desc">Veterans of the digital industry with a proven track record launching platforms
+                like Click4Jobs and Star Publicity.</p>
+            </div>
+            <div class="authority-card">
+              <div class="authority-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </div>
+              <h3 class="authority-title">Bespoke Precision</h3>
+              <p class="authority-desc">We avoid standard tools in favor of custom-engineered logic tailored
+                specifically to your operational requirements.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-section">
+          <div class="marquee-track" id="marquee-1">
+            <div class="marquee-item">Autonomous AI <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Spatial XR <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Unity Engine <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Metaverse Architecture <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Cloud SaaS <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Neural Logic <span class="marquee-dot"></span></div>
+            <!-- Duplicate for loop -->
+            <div class="marquee-item">Autonomous AI <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Spatial XR <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Unity Engine <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Metaverse Architecture <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Cloud SaaS <span class="marquee-dot"></span></div>
+            <div class="marquee-item">Neural Logic <span class="marquee-dot"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================
+       SECTION 5 - TESTIMONIALS
+      ================================================== -->
+      <section id="testimonials">
+        <div class="testimonials-header">
+          <div class="testimonials-label">System Endorsements</div>
+          <h2 class="testimonials-title" id="testimonials-title">Trusted By<br>The Industry</h2>
+        </div>
+
+        <div class="testimonials-viewport">
+          <div class="testimonials-track" id="testimonials-track">
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <p class="testimonial-quote">"Smash Studio didn't just deliver a platform; they delivered an edge. Their
+                ability to translate complex AI needs into a functional, high-speed reality changed how we manage our
+                digital traffic."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar" >DS</div>
+                <div>
+                  <div class="author-name">Head of Digital Strategy</div>
+                  <div class="author-role">Enterprise Client</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <p class="testimonial-quote">"The XR environment they built for us reduced our training time by 60%. The
+                spatial computing framework is leagues ahead of anything else in the region."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TL</div>
+                <div>
+                  <div class="author-name">Training Lead</div>
+                  <div class="author-role">Industrial Enterprise</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <p class="testimonial-quote">"Our platform handles 10x the load since the Smash Studio rebuild. Zero
+                downtime, zero compromise on performance. These engineers think in systems, not just features."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">CP</div>
+                <div>
+                  <div class="author-name">Chief Product Officer</div>
+                  <div class="author-role">SaaS Platform</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <p class="testimonial-quote">"Working with a studio that truly understands enterprise-grade engineering in
+                Punjab was a game changer. Their bespoke approach saved us 8 months of development time."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar" >MD</div>
+                <div>
+                  <div class="author-name">Managing Director</div>
+                  <div class="author-role">Regional Tech Firm</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================
+       SECTION 6 - CONTACT
+      ================================================== -->
+      <section id="contact">
+        <div class="contact-bg-grid"></div>
+        <div class="contact-inner">
+          <div class="contact-eyebrow">Secure Connection</div>
+          <h2 class="contact-title" id="contact-title">Powering<br>the National<br><em>Network</em></h2>
+          <p class="contact-tagline">Deploying cutting-edge technology across the region to ensure your brand remains
+            the primary authority in your market.</p>
+          <div class="contact-form">
+            <div class="form-row">
+              <div class="form-field"><input type="text" id="field-user-name" placeholder="Full Name"></div>
+              <div class="form-field"><input type="text" id="field-org-name" placeholder="Organisation Name"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><input type="email" id="field-email" placeholder="Secure Email"></div>
+              <div class="form-field"><input type="text" id="field-domain" placeholder="Domain / Industry"></div>
+            </div>
+            <div class="form-field"><textarea id="field-message"
+                placeholder="Describe your system requirements..."></textarea></div>
+            <button class="form-submit" id="submit-btn">
+              <span>Open Secure Line</span>
+              <span class="submit-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer id="main-footer">
+        <canvas id="footer-canvas"></canvas>
+        <div>
+          <div class="footer-logo">
+            <a href="#hero">
+              <img src="./src/assets/Smash logo.png" alt="Smash Studio">
+            </a>
+          </div>
+          <div class="footer-tagline">Powering the National Network.</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Systems</a></li>
+          <li><a href="#process">Protocol</a></li>
+          <li><a href="#tech">Archive</a></li>
+          <li><a href="#contact">Connect</a></li>
+        </ul>
+        <div class="footer-right">
+          <ul class="footer-links" style="text-align:right">
+            <li><a href="#">Twitter / X</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Dribbble</a></li>
+          </ul>
+          <div class="footer-copy">© 2025 Smash Studio. All rights reserved.</div>
+        </div>
+      </footer>
+
+    </div><!-- /smooth-content -->
+  </div><!-- /smooth-wrapper -->
+
+</body>
+
+</html>
