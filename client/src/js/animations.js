@@ -317,6 +317,42 @@ export function initAnimations() {
         }
       });
 
+      // Slider functionality for mobile/touch interaction
+      let proxy = document.createElement("div");
+      Draggable.create(proxy, {
+        type: "x",
+        trigger: tTrack,
+        inertia: true,
+        onPress() {
+          testimonialLoop.pause();
+        },
+        onDrag() {
+          gsap.set(tTrack, {
+            x: `+=${this.deltaX}`,
+            modifiers: {
+              x: gsap.utils.unitize(x => {
+                let currentX = parseFloat(x) % totalWidth;
+                return currentX > 0 ? currentX - totalWidth : currentX;
+              })
+            }
+          });
+        },
+        onRelease() {
+          testimonialLoop.resume();
+        },
+        onThrowUpdate() {
+          gsap.set(tTrack, {
+            x: `+=${this.deltaX}`,
+            modifiers: {
+              x: gsap.utils.unitize(x => {
+                let currentX = parseFloat(x) % totalWidth;
+                return currentX > 0 ? currentX - totalWidth : currentX;
+              })
+            }
+          });
+        }
+      });
+
       // Pause only this animation on hover, not global timeline
       tTrack.addEventListener('mouseenter', () => {
         testimonialLoop.pause();

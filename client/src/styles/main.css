@@ -2159,16 +2159,33 @@ footer {
 }
 
 @media (max-width: 768px) {
+  nav {
+    padding: 12px 20px;
+    padding-top: calc(15px + env(safe-area-inset-top, 0px));
+    display: flex;
+    align-items: center;
+  }
+
   body {
     text-align: center;
   }
 
   section {
     text-align: center;
-    padding: 100px 24px !important;
+    padding: 60px 24px !important;
   }
 
-  h1, h2, h3, h4, p {
+  h1, h2, h3, h4 {
+    text-align: center !important;
+  }
+
+  p {
+    text-align: justify !important;
+    hyphens: auto;
+  }
+
+  #process p,
+  .process-step p {
     text-align: center !important;
   }
 
