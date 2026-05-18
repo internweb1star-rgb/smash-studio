@@ -1954,7 +1954,7 @@ footer {
     width: 100% !important;
     height: auto !important;
     grid-template-columns: 1fr;
-    padding: 100px 24px;
+    padding: 60px 40px;
     text-align: center;
     border-right: none;
     border-bottom: 1px solid var(--border);
@@ -2172,7 +2172,7 @@ footer {
 
   section {
     text-align: center;
-    padding: 60px 24px !important;
+    padding: 60px 40px !important;
   }
 
   h1, h2, h3, h4 {
@@ -2218,7 +2218,7 @@ footer {
   }
 
   #process {
-    padding: 100px 24px;
+    padding: 60px 40px !important;
   }
 
   .process-bg-text {
@@ -2244,7 +2244,7 @@ footer {
   }
 
   .tech-inner {
-    padding: 100px 24px;
+    padding: 60px 40px !important;
     text-align: center;
   }
 
