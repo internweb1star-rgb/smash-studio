@@ -306,6 +306,7 @@ export function initAnimations() {
       tTrack.innerHTML += tTrack.innerHTML;
 
       const totalWidth = tTrack.scrollWidth / 2;
+      const wrap = gsap.utils.unitize(x => parseFloat(x) % totalWidth);
 
       const testimonialLoop = gsap.to(tTrack, {
         x: `-=${totalWidth}`,
@@ -313,7 +314,10 @@ export function initAnimations() {
         ease: "none",
         repeat: -1,
         modifiers: {
-          x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+          x: x => {
+            let currentX = parseFloat(x) % totalWidth;
+            return currentX > 0 ? currentX - totalWidth : currentX;
+          }
         }
       });
 
@@ -321,22 +325,37 @@ export function initAnimations() {
       Draggable.create(tTrack, {
         type: "x",
         inertia: true,
-        bounds: { minX: -totalWidth, maxX: 0 },
-        edgeResistance: 0.65,
         onPress() {
           testimonialLoop.pause();
         },
         onDrag() {
           gsap.set(tTrack, {
-            x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+            x: `+=${this.deltaX}`,
+            modifiers: {
+              x: x => {
+                let currentX = parseFloat(x) % totalWidth;
+                return currentX > 0 ? currentX - totalWidth : currentX;
+              }
+            }
           });
         },
         onRelease() {
           testimonialLoop.resume();
+          // Sync the animation's current time to the new position to prevent jump
+          gsap.to(testimonialLoop, {
+            time: testimonialLoop.duration() * (Math.abs(gsap.getProperty(tTrack, "x")) / totalWidth),
+            duration: 0
+          });
         },
         onThrowUpdate() {
           gsap.set(tTrack, {
-            x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+            x: `+=${this.deltaX}`,
+            modifiers: {
+              x: x => {
+                let currentX = parseFloat(x) % totalWidth;
+                return currentX > 0 ? currentX - totalWidth : currentX;
+              }
+            }
           });
         }
       });

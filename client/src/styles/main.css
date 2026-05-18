@@ -1417,8 +1417,14 @@ nav.scrolled {
 .testimonials-track {
   display: flex;
   gap: 24px;
-
   width: max-content;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.testimonials-track:active {
+  cursor: grabbing;
 }
 
 .testimonial-card {
