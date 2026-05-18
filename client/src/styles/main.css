@@ -2115,12 +2115,24 @@ footer {
 
 @media (max-width: 1024px) {
   nav {
-    padding: 20px 32px;
-    padding-top: calc(30px + env(safe-area-inset-top, 0px));
+    padding: 12px 20px;
+    padding-top: calc(15px + env(safe-area-inset-top, 0px));
+    display: flex;
+    align-items: center;
   }
 
   .nav-logo {
-    width: 180px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    margin: 0;
+  }
+
+  .burger-menu {
+    margin: 0;
   }
 
   .nav-links {
@@ -2147,12 +2159,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  nav {
-    padding: 20px 20px;
-    /* Increased top padding for camera notches/cutouts */
-    padding-top: calc(50px + env(safe-area-inset-top, 0px));
-  }
-
   body {
     text-align: center;
   }
