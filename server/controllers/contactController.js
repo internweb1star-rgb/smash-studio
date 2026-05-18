@@ -14,21 +14,35 @@ export const submitContact = async (req, res) => {
         } = req.body;
 
         if (!name || !organization || !email || !message) {
+            console.log('Validation failed: Missing required fields', { name, organization, email, message });
             return res.status(400).json({
                 success: false,
                 message: 'Missing required fields',
             });
         }
 
-        const newContact = await Contact.create({
-            name,
-            organization,
-            email,
-            domain,
-            message,
-        });
+        console.log('Attempting to create contact in DB...');
+        let newContact;
+        try {
+            newContact = await Contact.create({
+                name,
+                organization,
+                email,
+                domain,
+                message,
+            });
+            console.log('Contact created successfully in DB:', newContact._id);
+        } catch (dbError) {
+            console.error('Database insertion failed:', dbError.message);
+            return res.status(500).json({
+                success: false,
+                message: 'Failed to save inquiry to database',
+                error: dbError.message
+            });
+        }
 
         // 2. SEND NOTIFICATION EMAILS (NON-BLOCKING)
+        console.log('Attempting to send notification emails...');
         try {
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -88,11 +102,12 @@ export const submitContact = async (req, res) => {
 
     } catch (error) {
 
-        console.log(error);
+        console.error('CRITICAL ERROR in submitContact:', error);
 
         res.status(500).json({
             success: false,
             message: 'Server Error',
+            error: error.message
         });
     }
 };
