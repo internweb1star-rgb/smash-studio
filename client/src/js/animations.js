@@ -318,23 +318,17 @@ export function initAnimations() {
       });
 
       // Slider functionality for mobile/touch interaction
-      let proxy = document.createElement("div");
-      Draggable.create(proxy, {
+      Draggable.create(tTrack, {
         type: "x",
-        trigger: tTrack,
         inertia: true,
+        bounds: { minX: -totalWidth, maxX: 0 },
+        edgeResistance: 0.65,
         onPress() {
           testimonialLoop.pause();
         },
         onDrag() {
           gsap.set(tTrack, {
-            x: `+=${this.deltaX}`,
-            modifiers: {
-              x: gsap.utils.unitize(x => {
-                let currentX = parseFloat(x) % totalWidth;
-                return currentX > 0 ? currentX - totalWidth : currentX;
-              })
-            }
+            x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
           });
         },
         onRelease() {
@@ -342,13 +336,7 @@ export function initAnimations() {
         },
         onThrowUpdate() {
           gsap.set(tTrack, {
-            x: `+=${this.deltaX}`,
-            modifiers: {
-              x: gsap.utils.unitize(x => {
-                let currentX = parseFloat(x) % totalWidth;
-                return currentX > 0 ? currentX - totalWidth : currentX;
-              })
-            }
+            x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
           });
         }
       });

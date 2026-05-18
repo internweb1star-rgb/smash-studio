@@ -1257,23 +1257,7 @@ nav.scrolled {
   padding: 160px 80px;
 }
 
-.why-video-wrap {
-  width: 100%;
-  border-radius: 32px;
-  overflow: hidden;
-  margin-bottom: 80px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
-  background: #000;
-  aspect-ratio: 16 / 9;
-}
 
-.why-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 .tech-split {
   display: grid;
@@ -1293,6 +1277,7 @@ nav.scrolled {
   text-transform: uppercase;
 
   color: #0D3D82;
+  
 
   margin-bottom: 24px;
 }
@@ -1954,25 +1939,19 @@ footer {
     width: 100% !important;
     height: auto !important;
     grid-template-columns: 1fr;
-    padding: 60px 40px !important;
+    padding: 100px 24px;
     text-align: center;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
 
   .service-content {
-    max-width: 100% !important;
+    max-width: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-  }
-
-  .service-desc {
-    max-width: 100% !important;
-    margin-bottom: 26px;
-    font-size: 16px;
   }
 
   .service-icon {
@@ -2062,6 +2041,12 @@ footer {
 }
 
 @media (max-width: 620px) {
+  .service-card {
+    padding: 100px 15px 30px;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
   .service-title {
     font-size: clamp(26px, 7vw, 32px);
   }
@@ -2107,9 +2092,9 @@ footer {
 
 /* -- GLOBAL RESPONSIVE -- */
 @media (max-width: 1200px) {
-  footer {
-    grid-template-columns: 1fr 1fr;
-    gap: 60px 40px;
+  .service-card {
+    padding: 80px 60px;
+    gap: 40px;
   }
 }
 
@@ -2159,20 +2144,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-  nav {
-    padding: 12px 20px;
-    padding-top: calc(15px + env(safe-area-inset-top, 0px));
-    display: flex;
-    align-items: center;
-  }
-
   body {
     text-align: center;
   }
 
   section {
     text-align: center;
-    padding: 60px 40px !important;
+    padding: 40px 40px !important;
   }
 
   h1, h2, h3, h4 {
@@ -2218,7 +2196,7 @@ footer {
   }
 
   #process {
-    padding: 60px 40px !important;
+    padding: 40px 40px !important;
   }
 
   .process-bg-text {
@@ -2235,22 +2213,22 @@ footer {
 
   .process-steps {
     grid-template-columns: 1fr;
-    margin-top: 50px;
+    margin-top: 30px;
   }
 
   .process-step {
-    padding: 32px 24px;
+    padding: 24px 20px;
     text-align: center;
   }
 
   .tech-inner {
-    padding: 60px 40px !important;
+    padding: 0 !important;
     text-align: center;
   }
 
   .tech-split {
     padding: 0;
-    gap: 40px;
+    gap: 30px;
     text-align: center;
   }
 
@@ -2260,39 +2238,42 @@ footer {
 
   .authority-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .stats-grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    margin-top: 20px;
   }
 
   .stat-card {
-    padding: 24px 16px;
+    padding: 20px 16px;
   }
 
   .stat-number {
-    font-size: 48px;
+    font-size: 42px;
   }
 
   .stat-label {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   #testimonials {
-    padding: 100px 0;
+    padding: 40px 0 !important;
   }
 
   .testimonials-header {
-    padding: 0 24px;
+    padding: 0 40px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
   }
 
   .testimonial-card {
-    width: 88vw;
+    width: 85vw;
     padding: 24px;
     text-align: center;
   }
@@ -2302,7 +2283,7 @@ footer {
   }
 
   #contact {
-    padding: 100px 24px;
+    padding: 40px 40px !important;
   }
 
   .contact-title {
