@@ -98,16 +98,21 @@ export function initAnimations() {
     // ────────────────────────────────────────────────
     const burger = document.getElementById('burger-trigger');
     const mobileNav = document.getElementById('mobile-nav');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
     const mobileLinks = document.querySelectorAll('.mobile-links a, .mobile-cta');
 
     // ── SCROLL TO CONTACT (GLOBAL) ─────────────────
-    const scrollToContact = (e) => {
-      e.preventDefault();
+    const closeMobileNav = () => {
       if (mobileNav && mobileNav.classList.contains('active')) {
         burger.classList.remove('active');
         mobileNav.classList.remove('active');
         document.body.style.overflow = '';
       }
+    };
+
+    const scrollToContact = (e) => {
+      e.preventDefault();
+      closeMobileNav();
       smoother.scrollTo("#contact", true, "top top");
     };
 
@@ -122,11 +127,7 @@ export function initAnimations() {
         e.preventDefault();
         const target = this.getAttribute('href');
         if (target !== "#") {
-          if (mobileNav && mobileNav.classList.contains('active')) {
-            burger.classList.remove('active');
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-          }
+          closeMobileNav();
           smoother.scrollTo(target, true, "top top");
         }
       });
@@ -146,12 +147,12 @@ export function initAnimations() {
         }
       });
 
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', closeMobileNav);
+      }
+
       mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          burger.classList.remove('active');
-          mobileNav.classList.remove('active');
-          document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMobileNav);
       });
     }
 

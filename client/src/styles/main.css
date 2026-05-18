@@ -216,6 +216,8 @@ nav {
   left: 0;
   width: 100%;
   padding: 24px 60px;
+  /* Add safe area padding for notches */
+  padding-top: calc(24px + env(safe-area-inset-top, 0px));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -412,6 +414,25 @@ nav.scrolled {
   pointer-events: none;
   /* Hidden by default on all screen sizes */
   display: none;
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .mobile-nav-close {
+    top: calc(50px + env(safe-area-inset-top, 0px));
+    right: 24px;
+  }
 }
 
 /* Only enable on mobile */
@@ -1478,7 +1499,7 @@ nav.scrolled {
 
 /* ── MARQUEE ── */
 .marquee-section {
-  padding: 100px 0;
+  padding: 40px 0;
   background: var(--surface);
  
   overflow: hidden;
@@ -1799,9 +1820,11 @@ footer {
 }
 
 .footer-copy {
+  grid-column: 1 / -1;
   margin-top: 40px;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.3);
+  text-align: center;
 }
 
 /* ═════════════════════════════
@@ -1813,46 +1836,75 @@ footer {
     grid-template-columns: 1fr;
     align-content: center;
     gap: 24px;
-    padding: 96px 32px 40px;
+    padding: 96px 20px 40px;
+    /* Ensure content doesn't bleed out */
+    max-width: 100vw;
+    overflow: hidden;
+    box-sizing: border-box;
   }
 
   .service-content {
-    max-width: 720px;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .service-title {
-    font-size: clamp(48px, 12vw, 72px);
+    font-size: clamp(28px, 8vw, 42px);
+    line-height: 1.1;
+    word-break: normal;
+    overflow-wrap: break-word;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .service-title br {
+    display: none;
   }
 
   .service-desc {
-    max-width: 620px;
+    max-width: 100%;
     margin-bottom: 26px;
+    font-size: 16px;
   }
 
   .service-visual {
     min-height: 280px;
     width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .service-map {
-    width: min(58vw, 320px);
+    width: min(58vw, 300px);
+    transform: none;
+    margin: 0 auto;
   }
 
   .service-asset {
-    width: clamp(110px, 25vw, 190px);
-    right: 8%;
-    top: 0;
+    width: clamp(100px, 22vw, 160px);
+    position: absolute;
+    right: 5%;
+    top: -5%;
   }
 
   .service-data-panel {
-    width: min(360px, 82%);
-    right: 4%;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin-top: 40px;
     bottom: 0;
+    right: 0;
+    left: 0;
     padding: 16px;
+    box-sizing: border-box;
+    display: block;
   }
 
   .service-data-panel strong {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .service-visual-label {
@@ -1862,56 +1914,51 @@ footer {
 
 @media (max-width: 620px) {
   .service-card {
-    padding: 88px 22px 34px;
+    padding: 100px 15px 30px;
+    width: 100vw;
+    box-sizing: border-box;
   }
 
-  .service-icon {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 22px;
-    font-size: 24px;
-  }
-
-  .service-tag {
-    margin-bottom: 18px;
+  .service-title {
+    font-size: clamp(26px, 7vw, 32px);
   }
 
   .service-desc {
-    font-size: 15px;
-    line-height: 1.55;
-  }
-
-  .service-tags-list {
-    gap: 8px;
-  }
-
-  .service-tag-pill {
-    padding: 7px 12px;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
 
   .service-visual {
-    min-height: 230px;
+    min-height: 180px;
+    margin-top: 15px;
+    width: 100%;
+    overflow: visible;
   }
 
   .service-map {
-    width: min(74vw, 250px);
+    width: 100%;
+    max-width: 200px;
   }
 
   .service-data-panel {
-    width: 88%;
-    left: 6%;
-    right: auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 12px;
+    margin-top: 20px;
+    box-sizing: border-box;
   }
 
-  .service-data-panel span {
-    font-size: 9px;
-    letter-spacing: .08em;
+  .service-data-panel strong {
+    font-size: 16px;
   }
 
   .service-number {
-    font-size: 150px;
-    right: 16px;
+    font-size: 80px;
+    right: 8px;
+    bottom: -5px;
   }
 }
 
@@ -1926,6 +1973,7 @@ footer {
 @media (max-width: 1024px) {
   nav {
     padding: 20px 32px;
+    padding-top: calc(30px + env(safe-area-inset-top, 0px));
   }
 
   .nav-logo {
@@ -1957,23 +2005,68 @@ footer {
 
 @media (max-width: 768px) {
   nav {
-    padding: 16px 20px;
+    padding: 20px 20px;
+    /* Increased top padding for camera notches/cutouts */
+    padding-top: calc(50px + env(safe-area-inset-top, 0px));
   }
 
   .nav-links {
     display: none;
   }
 
+  .hero-content {
+    padding: 0 20px;
+  }
+
   .hero-headline {
     font-size: clamp(60px, 15vw, 100px);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    width: 100%;
+    justify-content: center;
   }
 
   .hero-float-card {
     display: none;
   }
 
+  #process {
+    padding: 100px 24px;
+  }
+
+  .process-bg-text {
+    font-size: 150px;
+    opacity: 0.05;
+  }
+
+  .process-header {
+    text-align: center;
+  }
+
   .process-steps {
     grid-template-columns: 1fr;
+    margin-top: 50px;
+  }
+
+  .process-step {
+    padding: 32px 24px;
+  }
+
+  .tech-inner {
+    padding: 100px 24px;
+  }
+
+  .tech-split {
+    padding: 0;
+    gap: 40px;
   }
 
   .authority-grid {
@@ -1984,21 +2077,57 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  #testimonials {
+    padding: 100px 0;
+  }
+
+  .testimonials-header {
+    padding: 0 24px;
+    text-align: center;
+  }
+
   .testimonial-card {
     width: 88vw;
     padding: 24px;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
+  #contact {
+    padding: 100px 24px;
+  }
+
+  .contact-title {
+    font-size: clamp(48px, 12vw, 80px);
+    text-align: center;
+  }
+
+  .contact-tagline {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-form {
     gap: 16px;
   }
 
+  .form-submit {
+    width: 100%;
+  }
+
   footer {
-    grid-template-columns: 1fr;
-    padding: 60px 32px;
+    grid-template-columns: 1fr 1fr;
+    padding: 60px 24px;
     text-align: center;
-    gap: 60px;
+    gap: 40px 10px;
+  }
+
+  footer > div:first-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .footer-logo {
+    display: flex;
+    justify-content: center;
   }
 
   .footer-right {
@@ -2007,6 +2136,55 @@ footer {
 
   .footer-links {
     align-items: center;
+  }
+
+  .footer-copy {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+  }
+
+  .marquee-section {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 56px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    margin-top: 24px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    margin-bottom: 24px;
+    margin-top: 80px;
+  }
+
+  #process,
+  .tech-inner,
+  #testimonials,
+  #contact {
+    padding: 80px 20px;
+  }
+
+  .contact-title {
+    font-size: 42px;
+  }
+
+  .process-title {
+    font-size: 48px;
+  }
+
+  .tech-headline {
+    font-size: 42px;
+  }
+
+  .service-title {
+    font-size: 40px;
   }
 }
 

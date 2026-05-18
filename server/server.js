@@ -19,7 +19,7 @@ app.use(helmet());
 // 2. CORS — locked to allowed origins
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim())
-  : ['http://localhost:5173', 'http://localhost:4173', 'https://smashstudio.tech'];
+  : ['http://localhost:5173', 'http://localhost:4173', 'https://smashstudio.in'];
 
 app.use(cors({
   origin: (origin, callback) => {

@@ -69,7 +69,7 @@ const Analytics = () => {
 
       {/* CHART SECTION */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 glass-card p-8">
+        <div className="lg:col-span-2 glass-card p-6 sm:p-8">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-xl font-bold text-white">Transmission Velocity</h3>
             <select className="bg-dark/50 border border-white/10 rounded-lg text-xs px-3 py-1 text-slate-400">

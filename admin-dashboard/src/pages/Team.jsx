@@ -50,7 +50,7 @@ const Team = () => {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
       {/* INVITE FORM */}
-      <div className="glass-card p-8">
+      <div className="glass-card p-6 sm:p-8">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
             <UserPlus size={24} />
@@ -81,7 +81,7 @@ const Team = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="operator@smashstudio.co"
+              placeholder="operator@smashstudio.in"
               className="w-full bg-dark/40 border border-white/5 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-all"
             />
           </div>

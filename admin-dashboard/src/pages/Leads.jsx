@@ -73,24 +73,24 @@ const Leads = () => {
   return (
     <div className="space-y-6">
       {/* FILTERS BAR */}
-      <div className="flex flex-wrap items-center justify-between gap-4 glass-card p-4">
-        <div className="flex items-center gap-4 flex-1 min-w-[300px]">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 glass-card p-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 flex-1">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
             <input 
               type="text" 
-              placeholder="Search by name, email or domain..."
+              placeholder="Search..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full bg-dark/40 border border-white/5 rounded-xl pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-primary/50 transition-all"
             />
           </div>
           <div className="flex items-center gap-2">
-            <Filter size={18} className="text-slate-500" />
+            <Filter size={18} className="text-slate-500 shrink-0" />
             <select 
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="bg-dark/40 border border-white/5 rounded-xl px-3 py-2 text-sm text-slate-300 focus:outline-none focus:border-primary/50"
+              className="flex-1 sm:flex-none bg-dark/40 border border-white/5 rounded-xl px-3 py-2 text-sm text-slate-300 focus:outline-none focus:border-primary/50"
             >
               <option value="">All Status</option>
               <option value="New">New</option>

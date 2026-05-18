@@ -10,7 +10,7 @@ const bootstrap = async () => {
     await mongoose.connect(process.env.MONGO_URI);
     console.log('MongoDB Connected for Bootstrapping...');
 
-    const adminEmail = process.env.ADMIN_EMAIL || 'admin@smashstudio.tech';
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@smashstudio.in';
 
     const existingAdmin = await User.findOne({ email: adminEmail });
     if (existingAdmin) {
