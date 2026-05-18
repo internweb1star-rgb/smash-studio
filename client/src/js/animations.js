@@ -367,7 +367,12 @@ export function initAnimations() {
         this.disabled = true;
 
         try {
-          const response = await fetch('/api/contact', {
+          // Use absolute URL if in production to ensure it hits the correct API
+          const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? '/api/contact'
+            : 'https://smashstudio.in/api/contact';
+
+          const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, organization, email, domain, message })
