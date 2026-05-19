@@ -27,6 +27,8 @@ const navbar = document.getElementById("main-nav");
 const triggerSection = document.getElementById("trigger-section");
 
 window.addEventListener("scroll", () => {
+  if (!triggerSection) return;
+  
   const triggerTop = triggerSection.offsetTop;
   const scrollPosition = window.scrollY;
 
