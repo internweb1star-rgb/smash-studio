@@ -13,6 +13,8 @@ dotenv.config();
 
 const app = express();
 
+app.use(express.json());
+
 // 1. SECURITY HEADERS
 app.use(helmet());
 
