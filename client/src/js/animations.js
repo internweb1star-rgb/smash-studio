@@ -163,6 +163,8 @@ export function initAnimations() {
       }
     });
 
+    const mainNavEl = document.getElementById('main-nav');
+
     // ────────────────────────────────────────────────
     // 4. CUSTOM CURSOR
     // ────────────────────────────────────────────────
@@ -187,11 +189,37 @@ export function initAnimations() {
             invalidateOnRefresh: true
           }
         });
+        // Ensure navbar stays hidden for the full pinned horizontal scroll
+        if (mainNavEl) {
+          ScrollTrigger.create({
+            trigger: '#services',
+            start: 'top top',
+            end: () => "+=" + sTrack.scrollWidth,
+            invalidateOnRefresh: true,
+            onEnter: () => gsap.to(mainNavEl, { y: -140, duration: 0.45, ease: 'power2.out' }),
+            onEnterBack: () => gsap.to(mainNavEl, { y: -140, duration: 0.45, ease: 'power2.out' }),
+            onLeave: () => gsap.to(mainNavEl, { y: 0, duration: 0.45, ease: 'power2.out' }),
+            onLeaveBack: () => gsap.to(mainNavEl, { y: 0, duration: 0.45, ease: 'power2.out' })
+          });
+        }
       }
     });
 
     // Mobile specific vertical layout fix
     mm.add("(max-width: 980px)", () => {
+      // Hide nav while #services is in view on mobile (stacked cards)
+      if (mainNavEl) {
+        ScrollTrigger.create({
+          trigger: '#services',
+          start: 'top top',
+          end: 'bottom top',
+          onEnter: () => gsap.to(mainNavEl, { y: -140, duration: 0.45, ease: 'power2.out' }),
+          onEnterBack: () => gsap.to(mainNavEl, { y: -140, duration: 0.45, ease: 'power2.out' }),
+          onLeave: () => gsap.to(mainNavEl, { y: 0, duration: 0.45, ease: 'power2.out' }),
+          onLeaveBack: () => gsap.to(mainNavEl, { y: 0, duration: 0.45, ease: 'power2.out' })
+        });
+      }
+
       gsap.utils.toArray('.service-card').forEach(card => {
         gsap.from(card, {
           y: 50,
