@@ -10,7 +10,16 @@ export default defineConfig({
     }
   },
   build: {
-    // Ensure CSS is extracted and linked before JS in the HTML output
     cssCodeSplit: false,
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
   }
 });
