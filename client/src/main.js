@@ -39,3 +39,28 @@ window.addEventListener("scroll", () => {
     navbar.classList.remove("hide");
   }
 });
+
+
+
+document.querySelectorAll('.process-step').forEach(step => {
+  const circle = step.querySelector('.ripple-circle');
+
+  step.addEventListener('mouseenter', e => {
+    const rect = step.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const dx = Math.max(x, rect.width - x);
+    const dy = Math.max(y, rect.height - y);
+    const scale = (Math.sqrt(dx*dx + dy*dy) * 2) / 20;
+
+    circle.style.left = x + 'px';
+    circle.style.top  = y + 'px';
+    step.style.setProperty('--scale', scale);
+    void circle.offsetWidth; // force reflow
+    step.classList.add('hovered');
+  });
+
+  step.addEventListener('mouseleave', () => {
+    step.classList.remove('hovered');
+  });
+});

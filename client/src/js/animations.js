@@ -309,16 +309,66 @@ export function initAnimations() {
     // ────────────────────────────────────────────────
     // 8. MARQUEE
     // ────────────────────────────────────────────────
-    const marqueeEl = document.getElementById('marquee-1');
-    if (marqueeEl) {
-      gsap.to(marqueeEl, {
-        xPercent: -50,
-        duration: 28,
-        ease: "none",
-        repeat: -1
-      });
-    }
+    (function () {
+  const track    = document.getElementById('techTrack');
+  const cards    = track.querySelectorAll('.tech-card');
+  const prevBtn  = document.getElementById('techPrev');
+  const nextBtn  = document.getElementById('techNext');
+  const dotsWrap = document.getElementById('techDots');
 
+  let current    = 0;
+  let visibleCount = 3;
+
+  function getVisible() {
+    if (window.innerWidth <= 560) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  const total = cards.length;
+
+  // build dots
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    visibleCount = getVisible();
+    const pages = total - visibleCount + 1;
+    for (let i = 0; i < pages; i++) {
+      const d = document.createElement('span');
+      d.className = 'tech-dot' + (i === current ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function goTo(index) {
+    visibleCount = getVisible();
+    const maxIndex = total - visibleCount;
+    current = Math.max(0, Math.min(index, maxIndex));
+    const cardWidth = cards[0].offsetWidth;
+    track.style.transform = `translateX(-${current * cardWidth}px)`;
+    document.querySelectorAll('.tech-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  window.addEventListener('resize', () => {
+    buildDots();
+    goTo(current);
+  });
+
+  buildDots();
+
+  // touch swipe
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+  track.addEventListener('touchend',   e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+  });
+})();
     // ────────────────────────────────────────────────
     // 9. TESTIMONIALS — Draggable
     // ────────────────────────────────────────────────
