@@ -56,25 +56,7 @@ export function initFooterCanvas() {
   window.addEventListener('resize', resize);
   resize();
 
-  const clock = new THREE.Clock();
-  let rafId;
 
-  function animate() {
-    rafId = requestAnimationFrame(animate);
-    
-    const elapsed = clock.getElapsedTime();
-    const cellWidth = size / divisions;
-    
-    // Move grid seamlessly by looping within one cell's width
-    gridHelper.position.z = (elapsed * 2) % cellWidth;
-    
-    particles.rotation.y = elapsed * 0.05;
-    particles.position.y = Math.sin(elapsed * 0.5) * 0.5;
-
-    renderer.render(scene, camera);
-  }
-
-  animate();
 
   // Cleanup
   return () => {
